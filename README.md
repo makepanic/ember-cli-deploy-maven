@@ -31,8 +31,8 @@ $ ember install ember-cli-deploy-maven
 
 ```javascript
 ENV.maven = {
-  groupId: 'com.smoope.smck',
-  artifactId: 'web-main',
+  groupId: 'com.example.foo',
+  artifactId: 'dummy',
   distributionManagement: [{
     snapshot: true,
     id: 'example-snapshots',
