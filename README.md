@@ -2,6 +2,8 @@
 
 This README outlines the details of collaborating on this Ember addon.
 
+__Note:__ this addon is still WIP and probably not production ready
+
 ## Installation
 
 * `git clone <repository-url>` this repository

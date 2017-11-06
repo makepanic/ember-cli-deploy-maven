@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>{{groupId}}</groupId>
+  <artifactId>{{artifactId}}</artifactId>
+  <version>{{version}}</version>
+  <packaging>jar</packaging>
+
+  <repositories>
+    {{#each repositories as |repo|}}
+      <repository>
+        <id>{{repo.id}}</id>
+        <url>{{repo.url}}</url>
+      </repository>
+    {{/each}}
+  </repositories>
+
+  <distributionManagement>
+    {{#each distributionManagement as |repo|}}
+      {{#if repo.snapshot}}
+        <snapshotRepository>
+          <id>{{repo.id}}</id>
+          <url>{{repo.url}}</url>
+        </snapshotRepository>
+      {{else}}
+        <repository>
+          <id>{{repo.id}}</id>
+          <url>{{repo.url}}</url>
+        </repository>
+      {{/if}}
+    {{/each}}
+  </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>pl.project13.maven</groupId>
+      <artifactId>git-commit-id-plugin</artifactId>
+      <version>2.2.3</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>{{finalName}}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <version>2.2.3</version>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <configuration>
+          <verbose>false</verbose>
+          <abbrevLength>8</abbrevLength>
+          <!-- this is needed, otherwise we can't access ${git.commit.id.abbrev} -->
+          <injectAllReactorProjects>true</injectAllReactorProjects>
+          <dotGitDirectory>{{gitDirectoryPath}}</dotGitDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+    <resources>
+      <resource>
+        <directory>.</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+        <excludes>
+          <exclude>pom.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
+  </build>
+</project>
