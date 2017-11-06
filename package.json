@@ -1,18 +1,18 @@
 {
   "name": "ember-cli-deploy-maven",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Ember cli plugin to deploy static assets to a maven repository.",
   "keywords": [
     "ember-addon",
     "ember-cli-deploy-plugin"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Christian",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/makepanic/ember-cli-deploy-maven",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
