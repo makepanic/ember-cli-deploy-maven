@@ -81,6 +81,12 @@ The version of the generated artifact.
 
 *Default:* package.json version or "0.0.0" if not found
 
+### packaging
+
+Artifact type package
+
+*Default:* jar
+
 ### finalName
 
 The name of the bundled project when it's finally built.

@@ -34,6 +34,7 @@ module.exports = {
             context.project.pkg.version :
             "0.0.0";
         },
+        packaging: 'jar',
         finalName: '${project.artifactId}-${project.version}-${git.commit.id.abbrev}',
         repositories: [],
         distributionManagement: []
@@ -60,6 +61,7 @@ module.exports = {
           groupId: this.readConfig('groupId'),
           artifactId: this.readConfig('artifactId'),
           version: `${version}${suffix}`,
+          packaging: this.readConfig('packaging'),
           finalName: this.readConfig('finalName'),
           repositories: this.readConfig('repositories'),
           distributionManagement: this.readConfig('distributionManagement'),
