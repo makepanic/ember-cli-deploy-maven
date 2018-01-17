@@ -140,3 +140,7 @@ For more information on using ember-cli, visit [https://ember-cli.com/](https://
 [3]: https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN401 "The SNAPSHOT Qualifier"
 [4]: https://maven.apache.org/pom.html#Repositories "Repositories"
 [5]: https://maven.apache.org/pom.html#Distribution_Management "Distribution Management"
+
+## Contributing
+
+- please follow the [conventional commits](https://conventionalcommits.org/) to structure your commits
