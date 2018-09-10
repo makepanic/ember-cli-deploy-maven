@@ -16,7 +16,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "mocha tests/unit/index-test.js"
+    "test": "mocha tests/unit/*.js"
   },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
+    "chai": "^4.1.2",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~2.16.2",
     "ember-cli-dependency-checker": "^2.0.0",
