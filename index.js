@@ -36,6 +36,7 @@ module.exports = {
         },
         packaging: 'jar',
         finalName: '${project.artifactId}-${project.version}-${git.commit.id.abbrev}',
+        formats: [],
         repositories: [],
         distributionManagement: []
       },
@@ -66,6 +67,15 @@ module.exports = {
           repositories: this.readConfig('repositories'),
           distributionManagement: this.readConfig('distributionManagement'),
           gitDirectoryPath: path.join(__dirname, ".git")
+        });
+      },
+
+      _buildAssemblyDescriptor() {
+        const assemblyDescriptorTemplatePath = path.join(__dirname, 'lib', 'assembly.xml.hbs');
+        const assemblyDescriptorTemplate = hbs.compile(fs.readFileSync(assemblyDescriptorTemplatePath, { encoding: 'utf8' }));
+
+        return assemblyDescriptorTemplate({
+          formats: this.readConfig('formats')
         });
       }
     });
