@@ -129,6 +129,17 @@ distributionManagement: [{
 }]
 ```
 
+### formats
+A list of formats as supported by the [Maven assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/). If this field is set, this addon activates a Maven profile which will call the Maven assembly to build the desired assemblies.
+
+*Default:* `[]`
+
+*Example:*
+
+```js
+formats: ['zip', 'tar.gz']
+```
+
 ## Running Tests
 
 * `yarn test`
