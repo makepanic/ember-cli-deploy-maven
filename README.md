@@ -130,7 +130,7 @@ distributionManagement: [{
 ```
 
 ### formats
-A list of formats as supported by the [Maven assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/). If this field is set, this addon activates a Maven profile which will call the Maven assembly to build the desired assemblies.
+A list of formats as supported by the [Maven assembly plugin][6]. If this field is set, this addon activates a Maven profile which will execute the Maven assembly plug-in to build the desired assemblies.
 
 *Default:* `[]`
 
@@ -151,6 +151,7 @@ For more information on using ember-cli, visit [https://ember-cli.com/](https://
 [3]: https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN401 "The SNAPSHOT Qualifier"
 [4]: https://maven.apache.org/pom.html#Repositories "Repositories"
 [5]: https://maven.apache.org/pom.html#Distribution_Management "Distribution Management"
+[6]: http://maven.apache.org/plugins/maven-assembly-plugin/ "Maven Assembly Plugin"
 
 ## Contributing
 
