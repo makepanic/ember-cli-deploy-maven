@@ -57,4 +57,38 @@ describe('Assembly descriptor', function () {
     expect(xml.assembly.fileSets.fileSet.excludes.exclude).to.include('assembly.xml');
     expect(xml.assembly.fileSets.fileSet.excludes.exclude).to.include('target/');
   });
+
+  it('is referenced in a profile within the POM', async function () {
+    plugin.beforeHook(context);
+    plugin.configure(context);
+
+    const pom = await parseString(plugin._buildPomContent(), { explicitArray: false });
+
+    expect(pom.project.profiles.profile).to.be.an('object');
+    expect(pom.project.profiles.profile.id).to.equal('assembly');
+  });
+
+  it('is used when formats are configured', function () {
+    // given configured formats
+    context.config.maven.formats = ['zip', 'tar.gz'];
+
+    // when preparing the plugin and checking the built Maven command
+    plugin.beforeHook(context);
+    plugin.configure(context);
+    const mvnCommand = plugin._buildMavenCommand();
+
+    // then it contains the profile
+    expect(mvnCommand).to.equal('mvn deploy -Passembly');
+  });
+
+  it('is not used when no formats are configured', function () {
+    // given no formats are configured
+    // when preparing the plugin and checking the built Maven command
+    plugin.beforeHook(context);
+    plugin.configure(context);
+    const mvnCommand = plugin._buildMavenCommand();
+
+    // then it not contains the profile
+    expect(mvnCommand).to.equal('mvn deploy');
+  });
 })

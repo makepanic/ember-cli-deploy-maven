@@ -42,9 +42,10 @@ module.exports = {
       },
 
       upload: async function (context) {
-        const command = 'mvn deploy';
+        const command = this._buildMavenCommand();
         const distPath = path.join(context.project.root, context.config.build.outputPath);
 
+        await writeFile(path.join(distPath, 'assembly.xml'), this._buildAssemblyDescriptor());
         await writeFile(path.join(distPath, 'pom.xml'), this._buildPomContent());
 
         return exec(command, {cwd: distPath}).catch(e => {
@@ -52,6 +53,12 @@ module.exports = {
           e.message = e.message + "\n" + e.stdout + "\n" + e.stderr;
           throw e;
         })
+      },
+
+      _buildMavenCommand() {
+        const formats = (this.readConfig('formats') || []);
+
+        return 'mvn deploy' + (formats.length > 0 ? ' -Passembly' : '');
       },
 
       _buildPomContent() {
