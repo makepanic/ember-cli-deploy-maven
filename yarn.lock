@@ -224,7 +224,7 @@ assert-plus@^0.2.0:
 
 assertion-error@^1.0.1:
   version "1.1.0"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
+  resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
 
 ast-types@0.9.6:
   version "0.9.6"
@@ -1295,7 +1295,7 @@ center-align@^0.1.1:
 
 chai@^4.1.2:
   version "4.1.2"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/chai/-/chai-4.1.2.tgz#0f64584ba642f0f2ace2806279f4f06ca23ad73c"
+  resolved "https://registry.yarnpkg.com/chai/-/chai-4.1.2.tgz#0f64584ba642f0f2ace2806279f4f06ca23ad73c"
   dependencies:
     assertion-error "^1.0.1"
     check-error "^1.0.1"
@@ -1340,7 +1340,7 @@ charm@^1.0.0:
 
 check-error@^1.0.1:
   version "1.0.2"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
+  resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
 
 chokidar@1.6.1:
   version "1.6.1"
@@ -1661,7 +1661,7 @@ decamelize@^1.0.0:
 
 deep-eql@^3.0.0:
   version "3.0.1"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/deep-eql/-/deep-eql-3.0.1.tgz#dfc9404400ad1c8fe023e7da1df1c147c4b444df"
+  resolved "https://registry.yarnpkg.com/deep-eql/-/deep-eql-3.0.1.tgz#dfc9404400ad1c8fe023e7da1df1c147c4b444df"
   dependencies:
     type-detect "^4.0.0"
 
@@ -2722,7 +2722,7 @@ get-caller-file@^1.0.0:
 
 get-func-name@^2.0.0:
   version "2.0.0"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/get-func-name/-/get-func-name-2.0.0.tgz#ead774abee72e20409433a066366023dd6887a41"
+  resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.0.tgz#ead774abee72e20409433a066366023dd6887a41"
 
 get-stdin@^4.0.1:
   version "4.0.1"
@@ -4214,7 +4214,7 @@ path-to-regexp@0.1.7:
 
 pathval@^1.0.0:
   version "1.1.0"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/pathval/-/pathval-1.1.0.tgz#b942e6d4bde653005ef6b71361def8727d0645e0"
+  resolved "https://registry.yarnpkg.com/pathval/-/pathval-1.1.0.tgz#b942e6d4bde653005ef6b71361def8727d0645e0"
 
 performance-now@^0.2.0:
   version "0.2.0"
@@ -5123,7 +5123,7 @@ type-check@~0.3.2:
 
 type-detect@^4.0.0:
   version "4.0.8"
-  resolved "https://nexus.dev.acrolinx.com/repository/npm-group/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
+  resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
 
 type-is@~1.6.15:
   version "1.6.15"
