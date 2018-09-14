@@ -14,6 +14,9 @@ const pomXmlTemplatePath = path.join(__dirname, 'lib', 'pom.xml.hbs');
 
 const pomXmlTemplate = hbs.compile(fs.readFileSync(pomXmlTemplatePath, {encoding: 'utf8'}));
 
+const assemblyDescriptorTemplatePath = path.join(__dirname, 'lib', 'assembly.xml.hbs');
+const assemblyDescriptorTemplate = hbs.compile(fs.readFileSync(assemblyDescriptorTemplatePath, { encoding: 'utf8' }));
+
 module.exports = {
   name: 'ember-cli-deploy-maven',
 
@@ -78,9 +81,6 @@ module.exports = {
       },
 
       _buildAssemblyDescriptor() {
-        const assemblyDescriptorTemplatePath = path.join(__dirname, 'lib', 'assembly.xml.hbs');
-        const assemblyDescriptorTemplate = hbs.compile(fs.readFileSync(assemblyDescriptorTemplatePath, { encoding: 'utf8' }));
-
         return assemblyDescriptorTemplate({
           formats: this.readConfig('formats')
         });
