@@ -14,6 +14,9 @@ const pomXmlTemplatePath = path.join(__dirname, 'lib', 'pom.xml.hbs');
 
 const pomXmlTemplate = hbs.compile(fs.readFileSync(pomXmlTemplatePath, {encoding: 'utf8'}));
 
+const assemblyDescriptorTemplatePath = path.join(__dirname, 'lib', 'assembly.xml.hbs');
+const assemblyDescriptorTemplate = hbs.compile(fs.readFileSync(assemblyDescriptorTemplatePath, { encoding: 'utf8' }));
+
 module.exports = {
   name: 'ember-cli-deploy-maven',
 
@@ -36,14 +39,16 @@ module.exports = {
         },
         packaging: 'jar',
         finalName: '${project.artifactId}-${project.version}-${git.commit.id.abbrev}',
+        formats: [],
         repositories: [],
         distributionManagement: []
       },
 
       upload: async function (context) {
-        const command = 'mvn deploy';
+        const command = this._buildMavenCommand();
         const distPath = path.join(context.project.root, context.config.build.outputPath);
 
+        await writeFile(path.join(distPath, 'assembly.xml'), this._buildAssemblyDescriptor());
         await writeFile(path.join(distPath, 'pom.xml'), this._buildPomContent());
 
         return exec(command, {cwd: distPath}).catch(e => {
@@ -51,6 +56,12 @@ module.exports = {
           e.message = e.message + "\n" + e.stdout + "\n" + e.stderr;
           throw e;
         })
+      },
+
+      _buildMavenCommand() {
+        const formats = (this.readConfig('formats') || []);
+
+        return 'mvn deploy' + (formats.length > 0 ? ' -Passembly' : '');
       },
 
       _buildPomContent() {
@@ -66,6 +77,12 @@ module.exports = {
           repositories: this.readConfig('repositories'),
           distributionManagement: this.readConfig('distributionManagement'),
           gitDirectoryPath: path.join(__dirname, ".git")
+        });
+      },
+
+      _buildAssemblyDescriptor() {
+        return assemblyDescriptorTemplate({
+          formats: this.readConfig('formats')
         });
       }
     });
