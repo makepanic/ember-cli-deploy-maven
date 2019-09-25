@@ -35,20 +35,12 @@
     {{/each}}
   </distributionManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>pl.project13.maven</groupId>
-      <artifactId>git-commit-id-plugin</artifactId>
-      <version>2.2.3</version>
-    </dependency>
-  </dependencies>
-
   <build>
     <finalName>{{finalName}}</finalName>
     <plugins>
       <plugin>
         <groupId>pl.project13.maven</groupId>
-        <version>2.2.3</version>
+        <version>3.0.1</version>
         <artifactId>git-commit-id-plugin</artifactId>
         <configuration>
           <verbose>false</verbose>
